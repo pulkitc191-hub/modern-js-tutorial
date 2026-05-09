@@ -1,0 +1,109 @@
+============================================================
+            JavaScript Type Conversions - Notes
+============================================================
+
+JavaScript lets you explicitly convert values from one type
+to another using built-in functions: Number(), Boolean(),
+String().
+
+
+------------------------------------------------------------
+1. CONVERSION TO NUMBER  →  Number(value)
+------------------------------------------------------------
+
+  Input Value     | Output        | Explanation
+  ----------------|---------------|----------------------------
+  "42"  (string)  | 42            | Numeric string → number
+  "abc" (string)  | NaN           | Non-numeric string → NaN
+  ""    (string)  | 0             | Empty string → 0
+  true            | 1             | Boolean true → 1
+  false           | 0             | Boolean false → 0
+  null            | 0             | null → 0
+  undefined       | NaN           | undefined → NaN
+
+  Example:
+    let num = "42";
+    let valuenum = Number(num);   // 42
+    typeof valuenum;              // "number"
+
+    Number(null);                 // 0
+    Number(undefined);            // NaN
+    Number(true);                 // 1
+    Number(false);                // 0
+
+
+------------------------------------------------------------
+2. CONVERSION TO BOOLEAN  →  Boolean(value)
+------------------------------------------------------------
+
+  FALSY values (convert to false):
+  ---------------------------------
+    false, 0, -0, "", null, undefined, NaN
+
+  TRUTHY values (convert to true):
+  ---------------------------------
+    Everything else — any non-empty string, any non-zero
+    number, objects, arrays, etc.
+
+  Input Value          | Output  | Why
+  ---------------------|---------|----------------------------
+  1       (number)     | true    | Non-zero number → truthy
+  0       (number)     | false   | Zero → falsy
+  "hitesh" (string)    | true    | Non-empty string → truthy
+  ""      (string)     | false   | Empty string → falsy
+
+  Example:
+    let IsLoggedIn = 1;
+    Boolean(IsLoggedIn);       // true
+
+    let farmer = "hitesh";
+    Boolean(farmer);           // true
+
+    let emptyString = "";
+    Boolean(emptyString);      // false
+
+
+------------------------------------------------------------
+3. CONVERSION TO STRING  →  String(value)
+------------------------------------------------------------
+
+  Input Value     | Output   | typeof
+  ----------------|----------|--------
+  33  (number)    | "33"     | string
+  true            | "true"   | string
+  null            | "null"   | string
+  undefined       | "undefined" | string
+
+  Example:
+    let random = 33;
+    let stringnumber = String(random);
+    typeof stringnumber;              // "string"
+
+
+------------------------------------------------------------
+QUICK REFERENCE — CONVERSION SUMMARY
+------------------------------------------------------------
+
+  To Number:
+    "42" → 42  |  "" → 0  |  true → 1  |  false → 0
+    null → 0   |  undefined → NaN  |  "abc" → NaN
+
+  To Boolean:
+    0, "", null, undefined, NaN → false
+    Everything else → true
+
+  To String:
+    Any value → its text representation as a string
+
+
+------------------------------------------------------------
+KEY TAKEAWAYS
+------------------------------------------------------------
+  1. Use Number(), Boolean(), String() for explicit conversion.
+  2. null → Number gives 0, but undefined → Number gives NaN.
+  3. Empty string "" is falsy; any non-empty string is truthy.
+  4. 0 is falsy; all other numbers (including negative) are truthy.
+  5. NaN stands for "Not a Number" — result of invalid numeric
+     conversion.
+
+============================================================

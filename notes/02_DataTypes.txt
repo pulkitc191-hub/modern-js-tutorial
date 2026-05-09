@@ -1,0 +1,65 @@
+============================================================
+               JavaScript Data Types - Notes
+============================================================
+
+"use strict"
+-----------
+- Written at the top of the file.
+- Tells the JS engine to treat the file as a modern ES6+ script.
+- Enables strict syntax rules (e.g. prevents using undeclared variables).
+
+
+------------------------------------------------------------
+PRIMITIVE DATA TYPES (7 types)
+------------------------------------------------------------
+
+  Type        | Description
+  ------------|---------------------------------------------------
+  Number      | Stores integers and floats. Max safe value: 2^53-1
+  String      | Stores text (e.g. "Hello")
+  BigInt      | Stores numbers beyond the Number range (e.g. 10n)
+  Boolean     | Stores true or false
+  Symbol      | Stores a unique, immutable value
+  null        | Intentionally empty / no value
+  undefined   | Variable declared but not assigned a value
+
+
+------------------------------------------------------------
+typeof OPERATOR
+------------------------------------------------------------
+- Used to check the data type of a value at runtime.
+- Syntax: typeof <value>
+
+  Expression            | Output
+  ----------------------|----------
+  typeof 10             | "number"
+  typeof "Hello"        | "string"
+  typeof true           | "boolean"
+  typeof null           | "object"    ← known JS bug/quirk
+  typeof undefined      | "undefined"
+  typeof 10n            | "bigint"
+  typeof Symbol("id")   | "symbol"
+
+
+------------------------------------------------------------
+IMPORTANT QUIRK
+------------------------------------------------------------
+  typeof null  →  "object"
+
+  - This is a long-standing bug in JavaScript (exists since v1).
+  - null is NOT an object, it is a primitive.
+  - But typeof null returns "object" for historical reasons.
+  - Always use strict equality (=== null) to check for null,
+    not typeof.
+
+
+------------------------------------------------------------
+KEY TAKEAWAYS
+------------------------------------------------------------
+  1. JavaScript has 7 primitive data types.
+  2. Use typeof to inspect the type of any value at runtime.
+  3. null shows up as "object" with typeof — this is a JS bug.
+  4. BigInt literals are written with an 'n' suffix (e.g. 100n).
+  5. Symbol creates a guaranteed unique value every time.
+
+============================================================
