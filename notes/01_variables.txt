@@ -6,7 +6,7 @@ WHAT ARE VARIABLES?
 -------------------
 - Variables are containers used to store different types of data.
 - In JS, you declare a variable using: let, const, or var.
-
+- Avoid using var as it is outdated.
 
 ------------------------------------------------------------
 DECLARATION KEYWORDS
