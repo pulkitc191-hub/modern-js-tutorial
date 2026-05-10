@@ -16,3 +16,5 @@ console.log(typeof null);
 console.log(typeof undefined);
 console.log(typeof 10n);           
 console.log(typeof Symbol("id"));
+
+
