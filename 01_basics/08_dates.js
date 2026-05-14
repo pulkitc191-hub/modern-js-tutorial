@@ -11,3 +11,10 @@ console.log(myDate.toLocaleString()); //gives the date in local format
 let newdate = new Date(2023 , 0 , 12) //months starts from 0 and format is year , month , date
 console.log(newdate.toDateString()); //gives the date in string format 
 
+newdate.toLocaleString('default', {
+    weekday: "long",
+    year: "numeric",
+    month: "2-digit",
+    day: "numeric",
+})
+
