@@ -1,0 +1,70 @@
+# JavaScript Data Types - Notes
+
+## 1. "use strict"
+- Written at the top of a JavaScript file.
+- Tells the JavaScript engine to treat the file as a modern ES6+ script.
+- Enables strict syntax rules (e.g., prevents using undeclared variables).
+
+---
+
+## 2. Dynamic Typing
+JavaScript is a **dynamically typed** language. This means you do not have to explicitly declare the data type of a variable. The type is automatically determined and interpreted by the JavaScript engine at runtime.
+
+---
+
+## 3. Categories of Data Types
+There are two main categories of data types in JavaScript:
+- **A. Primitive Data Types** (Call by Value)
+- **B. Non-Primitive (Reference) Data Types** (Call by Reference)
+
+---
+
+### A. PRIMITIVE DATA TYPES (7 types)
+These are passed by value. They are immutable and stored directly in the stack memory.
+
+| Type | Description |
+| :--- | :--- |
+| **Number** | Stores integers and floats. Max safe value: 2^53-1. |
+| **String** | Stores text (e.g., "Hello"). |
+| **Boolean** | Stores `true` or `false`. |
+| **null** | Intentionally empty / represents no value. |
+| **undefined** | Variable declared but not assigned a value. |
+| **BigInt** | Stores numbers beyond the Number range (e.g., 10n). |
+| **Symbol** | Stores a unique, immutable value. |
+
+#### Quirks & Features:
+- **Symbol Uniqueness:** Even if you create two symbols with the same description (e.g., `Symbol('id')` and `Symbol('id')`), they will never be equal. They are always unique.
+- **BigInt:** Literals are written with an 'n' suffix (e.g., `100n`).
+
+---
+
+### B. NON-PRIMITIVE DATA TYPES (Reference Types)
+These are passed by reference. They store a memory address (reference) rather than the actual value.
+
+| Type | Examples |
+| :--- | :--- |
+| **Object** | `{ name: "Alice", age: 25 }` |
+| **Array** | `[1, 2, 3, 4]` |
+| **Function** | `function() { console.log("Hello"); }` |
+
+---
+
+## 4. The `typeof` Operator
+- Used to check the data type of a value or variable at runtime.
+- **Syntax:** `typeof <value>` or `typeof(<value>)`
+
+| Expression | Output |
+| :--- | :--- |
+| `typeof 10` | `"number"` |
+| `typeof "Hello"` | `"string"` |
+| `typeof true` | `"boolean"` |
+| `typeof undefined` | `"undefined"` |
+| `typeof 10n` | `"bigint"` |
+| `typeof Symbol("id")` | `"symbol"` |
+| `typeof null` | `"object"` **<-- IMPORTANT QUIRK!** |
+
+### The `typeof null` Bug:
+- This is a 30-year-old bug in JavaScript (since v1).
+- Back then, values were stored in 32-bit units. The type tag for objects was `000`. `null` was represented as the NULL pointer (all zeros in most platforms), so its type tag evaluated to `000` (object).
+- `null` is **NOT** an object; it is a primitive.
+- Always use strict equality (`=== null`) to check for null, not `typeof`.
