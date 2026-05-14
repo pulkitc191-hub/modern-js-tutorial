@@ -27,8 +27,20 @@ const obj4 = {...obj1 , ...obj2}; // spread operator is more preferred to merge 
 //console.log(obj4);
 
 
-console.log(Object.keys(student)); //returns array of keys
-console.log(Object.values(student)); //returns array of values
+//console.log(Object.keys(student)); //returns array of keys
+//console.log(Object.values(student)); //returns array of values
 //console.log(Object.entries(student)); //returns array of key-value pairs
 
-console.log(student.hasOwnProperty('name')); //checks if object has a property
+//console.log(student.hasOwnProperty('name')); //checks if object has a property
+
+const course = {
+    coursename: "js in hindi",
+    price: 999,
+    courseInstructor: "hitesh"
+}
+
+// console.log(course.courseInstructor); //dot notation
+// console.log(course['price']); //bracket notation
+const {courseInstructor : Instructor} /*what needed from the object*/ = course /*from which object*/; // destructuring of object
+console.log(Instructor);
+
