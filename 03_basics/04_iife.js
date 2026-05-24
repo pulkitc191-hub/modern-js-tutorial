@@ -15,4 +15,4 @@
 })("Pulkit"); //passing the parameter here
 
 
-const price = 100;
+
